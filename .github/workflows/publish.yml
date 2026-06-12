@@ -20,7 +20,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: latest
+          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -28,6 +28,9 @@ jobs:
           node-version: 22
           registry-url: "https://registry.npmjs.org"
           cache: "pnpm"
+
+      - name: Approve esbuild builds
+        run: pnpm config set onlyBuiltDependencies '["esbuild"]' --location project
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
