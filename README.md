@@ -1,5 +1,8 @@
 # vite-plugin-prettier-dts
 
+[![npm version](https://img.shields.io/npm/v/vite-plugin-prettier-dts)](https://www.npmjs.com/package/vite-plugin-prettier-dts)
+[![GitHub](https://img.shields.io/badge/github-cg37%2Fvite--plugin--prettier--dts-blue?logo=github)](https://github.com/cg37/vite-plugin-prettier-dts)
+
 自动格式化 Vite 项目中由其他插件生成的 `.d.ts` 声明文件（如 `unplugin-auto-import`、`unplugin-vue-components`），使其符合项目的 Prettier 配置。
 
 ## 为什么需要？
