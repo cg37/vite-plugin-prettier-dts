@@ -1,0 +1,46 @@
+{
+  "name": "vite-plugin-prettier-dts",
+  "version": "0.1.0",
+  "description": "Auto-format auto-generated .d.ts files with Prettier in Vite projects",
+  "type": "module",
+  "keywords": [
+    "vite",
+    "vite-plugin",
+    "prettier",
+    "dts",
+    "declaration",
+    "format",
+    "auto-import"
+  ],
+  "license": "MIT",
+  "author": "",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "prepublishOnly": "pnpm build"
+  },
+  "peerDependencies": {
+    "prettier": ">=3",
+    "vite": ">=4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "prettier": "^3.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^6.0.0"
+  }
+}
