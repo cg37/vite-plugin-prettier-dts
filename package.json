@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-prettier-dts",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Auto-format auto-generated .d.ts files with Prettier in Vite projects",
   "type": "module",
   "keywords": [
