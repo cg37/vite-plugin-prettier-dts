@@ -19,22 +19,19 @@ jobs:
             PNPM_MINIMUM_RELEASE_AGE: "0"
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
-
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v4
-              with:
-                  version: 10
+              uses: actions/checkout@v6
 
             - name: Setup Node.js
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v6
               with:
-                  node-version: 22
+                  node-version: "24"
                   registry-url: "https://registry.npmjs.org"
-                  cache: "pnpm"
+                  package-manager-cache: false # never use caching in release builds
 
-            - name: Approve esbuild builds
-              run: pnpm config set onlyBuiltDependencies '["esbuild"]' --location project
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v6
+              with:
+                  version: 10
 
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
