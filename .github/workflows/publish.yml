@@ -4,6 +4,12 @@ on:
     push:
         tags:
             - "v*"
+    workflow_dispatch:
+        inputs:
+            dry-run:
+                description: "只构建不发布（预检模式）"
+                type: boolean
+                default: false
 
 permissions:
     id-token: write # Required for OIDC
@@ -40,4 +46,9 @@ jobs:
               run: pnpm build
 
             - name: Publish to npm
+              if: ${{ !inputs.dry-run }}
               run: pnpm publish --no-git-checks
+
+            - name: Dry-run 模式 — 跳过发布
+              if: ${{ inputs.dry-run }}
+              run: echo "✅ 预检完成，未执行发布"
